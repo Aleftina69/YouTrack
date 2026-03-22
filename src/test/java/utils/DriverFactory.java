@@ -11,6 +11,7 @@ public class DriverFactory {
         if (driver.get() == null) {
             System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
             driver.set(new ChromeDriver());
+            driver.get().manage().window().maximize();
         }
         return driver.get();
     }

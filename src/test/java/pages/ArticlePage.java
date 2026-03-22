@@ -1,27 +1,17 @@
 package pages;
 
+import base.BasePage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import utils.DriverFactory;
-import utils.WaitUtil;
 
-public class ArticlePage {
+public class ArticlePage extends BasePage {
 
-    private WebDriver driver;
-
-    private By createButton = By.cssSelector("[data-test='ring-link']");
-    private By newArticleLink = By.linkText("New article");
-    private By titleInput = By.cssSelector("[data-test='summary']");
-    private By publishButton = By.cssSelector("[data-test='publish-button']");
-
-    public ArticlePage() {
-        this.driver = DriverFactory.getDriver();
-    }
+    private By createButton = By.xpath("//button[contains(text(),'Создать статью')]");
+    private By titleInput = By.xpath("//input[@name='title']");
+    private By saveButton = By.xpath("//button[contains(text(),'Сохранить')]");
 
     public void createArticle(String title) {
-        WaitUtil.waitForClickable(driver, createButton, 10).click();
-        WaitUtil.waitForClickable(driver, newArticleLink, 10).click();
-        WaitUtil.waitForElement(driver, titleInput, 10).sendKeys(title);
-        WaitUtil.waitForClickable(driver, publishButton, 10).click();
+        click(createButton);
+        type(titleInput, title);
+        click(saveButton);
     }
 }

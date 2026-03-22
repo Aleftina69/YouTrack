@@ -1,0 +1,14 @@
+# URL
+url=http://localhost:8080
+
+# Учетные данные для входа
+username=admin
+password=admin
+
+# Прочие настройки
+implicitWait=10
+explicitWait=10
+
+# Настройки для тестовых данных
+articlesCsv=src/test/resources/articles.csv
+dashboardsCsv=src/test/resources/dashboards.csv
