@@ -1,0 +1,25 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Output folders
+out/
+target/
+build/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Maven
+dependency-reduced-pom.xml
+release.properties
+
+# Gradle
+.gradle/
+build/

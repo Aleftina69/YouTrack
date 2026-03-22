@@ -1,0 +1,17 @@
+<suite name="YouTrackTests" parallel="tests" thread-count="3">
+    <test name="LoginLogoutTest">
+        <classes>
+            <class name="tests.LoginLogoutTest"/>
+        </classes>
+    </test>
+    <test name="DashboardTest">
+        <classes>
+            <class name="tests.DashboardTest"/>
+        </classes>
+    </test>
+    <test name="ArticleTest">
+        <classes>
+            <class name="tests.ArticleTest"/>
+        </classes>
+    </test>
+</suite>
