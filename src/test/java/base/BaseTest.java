@@ -21,17 +21,22 @@ public class BaseTest {
     @BeforeClass
     public void loadProperties() throws IOException {
         properties = new Properties();
-        FileInputStream fis = new FileInputStream("src/test/resources/config.properties");
-        properties.load(fis);
+        try (FileInputStream fis = new FileInputStream("src/test/resources/config.properties")) {
+            properties.load(fis);
+        }
     }
 
     @BeforeMethod(alwaysRun = true)
     @Parameters({"url"})
-    public void setUp(String url) {
+    public void setUp(@Optional String url) {
         driver = DriverFactory.getDriver();
-        baseUrl = url != null ? url : properties.getProperty("url");
+        baseUrl = (url != null && !url.isEmpty())
+                ? url
+                : properties.getProperty("url");
+
         username = properties.getProperty("username");
         password = properties.getProperty("password");
+
         driver.get(baseUrl);
     }
 

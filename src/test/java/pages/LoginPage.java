@@ -9,9 +9,15 @@ public class LoginPage extends BasePage {
     private By passwordInput = By.xpath("//input[@id='password']");
     private By loginButton = By.xpath("//button[@id='login-submit']");
 
+    private By loginForm = By.xpath("//form[@id='login-form']");
+
     public void login(String username, String password) {
         type(usernameInput, username);
         type(passwordInput, password);
         click(loginButton);
+    }
+
+    public boolean isLoginPageDisplayed() {
+        return isVisible(loginForm);
     }
 }

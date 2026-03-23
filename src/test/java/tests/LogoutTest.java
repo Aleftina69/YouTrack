@@ -1,6 +1,7 @@
 package tests;
 
 import base.BaseTest;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.HeaderPage;
@@ -18,5 +19,8 @@ public class LogoutTest extends BaseTest {
     public void logoutTest() {
         HeaderPage headerPage = new HeaderPage();
         headerPage.logout();
+
+        LoginPage loginPage = new LoginPage();
+        Assert.assertTrue(loginPage.isLoginPageDisplayed(), "Пользователь не вышел с системы");
     }
 }

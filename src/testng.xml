@@ -1,9 +1,5 @@
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="YouTrackSuite" parallel="tests" thread-count="5">
-
-    <listeners>
-        <listener class-name="utils.TestListener"/>
-    </listeners>
 
     <test name="LoginTests">
         <classes>
@@ -29,9 +25,9 @@
         </classes>
     </test>
 
-    <test name="SearchDashboardTests">
+    <test name="DeleteDashboardTests">
         <classes>
-            <class name="tests.SearchDashboardTest"/>
+            <class name="tests.DeleteDashboardTest"/>
         </classes>
     </test>
 

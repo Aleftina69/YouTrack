@@ -1,6 +1,7 @@
 package tests;
 
 import base.BaseTest;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.ArticlePage;
@@ -20,5 +21,8 @@ public class ArticleTest extends BaseTest {
     public void articleCreateTest(String title) {
         ArticlePage articlePage = new ArticlePage();
         articlePage.createArticle(title);
+
+        String actualTitle = articlePage.getArticleTitle();
+        Assert.assertEquals(actualTitle, title, "Заголовок статьи не совпадает");
     }
 }

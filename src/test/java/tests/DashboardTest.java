@@ -1,6 +1,7 @@
 package tests;
 
 import base.BaseTest;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.DashboardPage;
@@ -16,13 +17,17 @@ public class DashboardTest extends BaseTest {
         };
     }
 
-    @Test(dataProvider = "dashboardsData", description = "Создание и удаление дашборда")
-    public void dashboardCreateAndDeleteTest(String name) {
+    @Test(dataProvider = "dashboardsData", description = "Создание дашборда")
+    public void dashboardCreateTest(String name) {
         DashboardPage dashboard = new DashboardPage();
+
         dashboard.clickCreateDashboard();
         dashboard.typeDashboardName(name);
         dashboard.saveDashboard();
 
-        dashboard.deleteDashboard(name);
+        Assert.assertTrue(
+                dashboard.isDashboardCreated(name),
+                "Дашборд не был создан"
+        );
     }
 }
